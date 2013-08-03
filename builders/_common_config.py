@@ -1,8 +1,8 @@
 
 def printy_thing():
-    print("blarg")
+    print("honk")
 
 
-MYVAR = "AAAAA"
+MYVAR = "BBBBBBB"
 
 
