@@ -1,0 +1,43 @@
+
+
+to try this out, clone the repo to your machine.
+
+REPL key: anything prefixed with '>>> ' is a command. anything else is the expected output.
+
+open 2 terminals and cd into the cloned repo in both.
+run the command `git checkout one`
+in one terminal start a python repl (just type `python`. ipython works too.)
+in the REPL run:
+
+    >>> import imp
+    >>> master = imp.load_source("master", "master.py")
+    loading builder
+    this is the original builder
+    blarg
+    AAAAA
+
+
+Note: Do not exit the REPL. Leave it open.
+in the other terminal run `git checkout two`
+go back to the repl and run:
+
+    >>> master = imp.load_source("master", "master.py")
+    loading builder v2
+    this is the second builder version
+    blarg
+    AAAAA
+
+If you check the source code in builders/_common_config.py though, you will see that the var has changed to 'BBBBBBB' and the function should now print 'rawr'. which is not showing up as you can see.
+
+now go back to the other terminal again and run `git checkout three`
+go back to the repl one more time and run:
+
+    >>> master = imp.load_source("master", "master.py")
+    loading builder v3
+    this is the third builder
+    honk
+    BBBBBBB
+
+
+which is what we expect.
+
